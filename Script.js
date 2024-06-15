@@ -39,6 +39,20 @@ $(document).ready(function() {
             });
     }
 
+    // Function to handle form submission for adding a new region
+    $('#regionForm').submit(function(event) {
+        event.preventDefault();
+        const regionName = $('#regionName').val();
+        $.post(apiUrl, { name: regionName, sections: [] })
+            .done(function() {
+                fetchRegions(); // Refresh regions after adding new region
+                $('#regionForm')[0].reset(); // Reset form fields
+            })
+            .fail(function(error) {
+                console.error('Error adding region:', error);
+            });
+    });
+
     // Function to handle delete region
     function deleteRegion(regionId) {
         $.ajax({
