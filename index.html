@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Region Management</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -15,14 +16,17 @@
             <div class="form-group">
                 <label for="regionName">Region Name</label>
                 <input type="text" class="form-control" id="regionName" name="regionName" required>
+                <!-- Input field for entering new region name -->
             </div>
             <button type="submit" class="btn btn-primary">Add Region</button>
+            <!-- Submit button to add the region -->
         </form>
 
         <hr>
 
         <!-- Display regions -->
         <div id="regionList"></div>
+        <!-- Placeholder to display added regions dynamically -->
 
         <!-- Modal for editing region -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -37,15 +41,19 @@
                     <div class="modal-body">
                         <form id="editRegionForm">
                             <input type="hidden" id="editRegionId" name="editRegionId">
+                            <!-- Hidden field to store region ID for editing -->
                             <div class="form-group">
                                 <label for="editRegionName">Region Name</label>
                                 <input type="text" class="form-control" id="editRegionName" name="editRegionName" required>
+                                <!-- Input field for editing region name -->
                             </div>
                             <div id="editSections">
-                                <!-- Editable section fields will be added dynamically here -->
+                                <!-- Placeholder for additional sections or options -->
                             </div>
                             <button type="button" class="btn btn-success btn-sm mt-2" id="addSectionBtn">Add Section</button>
+                            <!-- Button to add a new section dynamically -->
                             <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+                            <!-- Submit button to save changes in the modal -->
                         </form>
                     </div>
                 </div>
@@ -59,5 +67,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <!-- Custom JavaScript for interactive functionality -->
 </body>
 </html>

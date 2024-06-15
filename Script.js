@@ -9,6 +9,7 @@ $(document).ready(function() {
                 regions.forEach(function(region) {
                     let sectionsHtml = '';
 
+                    // Check if region.sections exists and is an array
                     if (Array.isArray(region.sections) && region.sections.length > 0) {
                         sectionsHtml = region.sections.map(section => `
                             <div class="section">
@@ -18,6 +19,7 @@ $(document).ready(function() {
                         `).join('');
                     }
 
+                    // Append region HTML to #regionList
                     $('#regionList').append(`
                         <div class="card mb-3">
                             <div class="card-body">
@@ -63,10 +65,12 @@ $(document).ready(function() {
         // Code to populate edit modal with region details
         $.get(`${apiUrl}/${regionId}`)
             .done(function(region) {
+                // Populate edit modal fields with region data
                 $('#editRegionId').val(region.id);
                 $('#editRegionName').val(region.name);
                 $('#editSections').empty();
                 region.sections.forEach(function(section) {
+                    // Append section fields to edit modal form
                     $('#editSections').append(`
                         <div class="form-group">
                             <label for="editSectionName${section.id}">Section Name</label>
@@ -76,7 +80,7 @@ $(document).ready(function() {
                         </div>
                     `);
                 });
-                $('#editModal').modal('show');
+                $('#editModal').modal('show'); // Show edit modal
             })
             .fail(function(error) {
                 console.error('Error fetching region details:', error);
@@ -102,7 +106,7 @@ $(document).ready(function() {
         })
         .done(function() {
             fetchRegions(); // Refresh regions after update
-            $('#editModal').modal('hide');
+            $('#editModal').modal('hide'); // Hide edit modal
         })
         .fail(function(error) {
             console.error('Error updating region:', error);
@@ -112,4 +116,3 @@ $(document).ready(function() {
     // Initial fetch of regions on document ready
     fetchRegions();
 });
-
